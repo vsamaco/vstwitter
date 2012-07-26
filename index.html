@@ -6,6 +6,28 @@
   <script src="scripts/backbone/backbone.js"></script>
 	<script src="scripts/vsreddit.js"/>
 	<title>vs.twitter</title>
+	
+	<script type="text/template" id="tweet-template">
+		<div class="avatar"></div>
+		<div class="content">
+			<div class="name"><%= name %></div>
+			<div class="message"><%= message %></div>
+		</div>
+		<div class="date"><%= created %></div>
+		<ul class="action">
+			<li><a href="#" class="reply">Reply</a></li>
+			<li><a href="#" class="favorite">Favorite</a></li>
+			<li><a href="#" class="delete">Delete</a></li>
+		</ul>
+		</div>
+	</script>
+	<script type="text/template" id="app-template">
+		<div class="tweet-box">
+			<textarea id="tweet-message"/>
+			<button class="submit">Submit</button>
+		</div>
+		<ul class="tweets-container"></ul>
+	</script>
 </head>
 <body>
 	<div id="app"></div>

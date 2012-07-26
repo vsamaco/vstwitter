@@ -1,57 +1,72 @@
-var Tweet = Backbone.Model.extend({
-  defaults: function() {
-    return {
-      name: 'User',
-      message: '',
-      timestamp: new Date()
+$(function() {
+  var Tweet = Backbone.Model.extend({
+    defaults: function() {
+      return {
+        name: 'User',
+        message: '',
+        timestamp: new Date()
+      }
     }
-  }
-});
+  });
 
-var TweetCollection = Backbone.Collection.extend({
-  model: Tweet
-});
+  var TweetList = Backbone.Collection.extend({
+    model: Tweet
+  });
 
-var TweetView = Backbone.View.extend({
-  tagName: 'li',
-  template: _.template($("#tweet-template")),
+  var TweetView = Backbone.View.extend({
+    tagName: 'li',
+    template: _.template($("#tweet-template").html()),
   
-  initialize: function() {
-    this.model.on('change', this.render, this);
-    this.model.on('destroy', this.remove, this);
-  },
+    initialize: function() {
+      this.model.on('change', this.render, this);
+      this.model.on('destroy', this.remove, this);
+    },
   
-  render: function() {
-    this.$el.html(this.template(this.model.toJSON()));
-  },
+    render: function() {
+      this.$el.html(this.template(this.model.toJSON()));
+    },
   
-  remove: function() {
-    this.remove();
-  }
-});
+    remove: function() {
+      this.remove();
+    }
+  });
 
-var TweetsView = Backbone.View.extend({
-  initialize: function() {
-    this.collection.on('add', this.addOne, this);
-    this.collection.on('reset', this.addAll, this);
-  },
+  var TweetListView = Backbone.View.extend({
+    initialize: function() {
+      this.collection.on('add', this.addOne, this);
+      this.collection.on('reset', this.addAll, this);
+    },
   
-  render: function() {
-    this.addAll();
-    return this;
-  },
+    render: function() {
+      this.addAll();
+      return this;
+    },
   
-  addOne: function(tweet) {
-    var view = new TweetView({model: tweet});
-    this.$el.append(view.render().el);
-  },
+    addOne: function(tweet) {
+      var view = new TweetView({model: tweet});
+      this.$el.append(view.render().el);
+    },
   
-  addAll: function() {
-    this.$el.empty();
-    this.collection.forEach(this.addOne, this);
-  }
-});
+    addAll: function() {
+      this.$el.empty();
+      this.collection.forEach(this.addOne, this);
+    }
+  });
 
-var TweetApp = Backbone.View.extend({
+  var TweetApp = Backbone.View.extend({
+    events: {
+    
+    },
   
+    initialize: function() {
+      this.tweetList = new TweetList;
+      this.tweetListView = new TweetListView({collection: this.tweetList});
+    },
+  
+    render: function() {
+      $(".tweets-container").append(this.tweetListView.render().el);
+    }
+  });
+  
+  window.app = new TweetApp;
 });

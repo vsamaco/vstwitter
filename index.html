@@ -4,9 +4,6 @@
 	<script src="scripts/jquery.min.js"></script>
   <script src="scripts/underscore/underscore-min.js"></script>
   <script src="scripts/backbone/backbone.js"></script>
-	<script src="scripts/vsreddit.js"/>
-	<title>vs.twitter</title>
-	
 	<script type="text/template" id="tweet-template">
 		<div class="avatar"></div>
 		<div class="content">
@@ -21,15 +18,18 @@
 		</ul>
 		</div>
 	</script>
-	<script type="text/template" id="app-template">
+	<script src="scripts/vstwitter.js"/></script>
+	<title>vs.twitter</title>
+
+</head>
+<body>
+	<div id="app">
+		<h1>vsTwitter</h1>
 		<div class="tweet-box">
-			<textarea id="tweet-message"/>
+			<textarea id="tweet-message"></textarea>
 			<button class="submit">Submit</button>
 		</div>
 		<ul class="tweets-container"></ul>
-	</script>
-</head>
-<body>
-	<div id="app"></div>
+	</div>
 </body>
 </html>

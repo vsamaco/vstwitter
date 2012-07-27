@@ -10,7 +10,7 @@
 			<div class="name"><%= name %></div>
 			<div class="message"><%= message %></div>
 		</div>
-		<div class="date"><%= created %></div>
+		<div class="date"><%= timestamp %></div>
 		<ul class="action">
 			<li><a href="#" class="reply">Reply</a></li>
 			<li><a href="#" class="favorite">Favorite</a></li>
@@ -29,7 +29,7 @@
 			<textarea id="tweet-message"></textarea>
 			<button class="submit">Submit</button>
 		</div>
-		<ul class="tweets-container"></ul>
+		<ul id="tweets-container"></ul>
 	</div>
 </body>
 </html>

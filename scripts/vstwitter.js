@@ -4,8 +4,13 @@ $(function() {
       return {
         name: 'User',
         message: '',
-        timestamp: new Date()
+        timestamp: new Date(),
+        favorite: false
       }
+    },
+    
+    toggleFavorite: function() {
+      this.save({favorite: !this.get('favorite')});
     }
   });
 
@@ -16,6 +21,9 @@ $(function() {
   var TweetView = Backbone.View.extend({
     tagName: 'li',
     template: _.template($("#tweet-template").html()),
+    events: {
+      "click .favorite" : "toggleFavorite"
+    },
   
     initialize: function() {
       this.model.on('change', this.render, this);
@@ -24,11 +32,16 @@ $(function() {
   
     render: function() {
       this.$el.html(this.template(this.model.toJSON()));
+      this.$el.toggleClass('favorite', this.model.get('favorite'));
       return this;
     },
   
     remove: function() {
       this.remove();
+    },
+    
+    toggleFavorite: function() {
+      this.model.toggleFavorite();
     }
   });
 

@@ -102,12 +102,20 @@ $(function() {
       var tweetLength = this.input.val().length;
       var tweetCount = this.tweetMaxCount - tweetLength;
       
+      if (tweetCount < 0) {
+        this.tweetCounter.addClass('maxed');
+      } else {
+        this.tweetCounter.removeClass('maxed');
+      }
+      
       this.tweetCounter.text(tweetCount);
     },
     
     submitTweet: function() {
       var message = this.input.val();
-      if(!message) return;
+      if (!message) return;
+      
+      if (message.length > this.tweetMaxCount) return;
       
       this.tweetList.create({message: message});
       this.input.val('');

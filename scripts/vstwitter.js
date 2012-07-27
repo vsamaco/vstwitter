@@ -10,7 +10,7 @@ $(function() {
     },
     
     toggleFavorite: function() {
-      this.save({favorite: !this.get('favorite')});
+      this.set('favorite', !this.get('favorite'));
     }
   });
 
@@ -22,7 +22,8 @@ $(function() {
     tagName: 'li',
     template: _.template($("#tweet-template").html()),
     events: {
-      "click .favorite" : "toggleFavorite"
+      "click .favorite" : "toggleFavorite",
+      "click .delete" : "remove"
     },
   
     initialize: function() {
@@ -37,7 +38,7 @@ $(function() {
     },
   
     remove: function() {
-      this.remove();
+      this.model.clear();
     },
     
     toggleFavorite: function() {
@@ -89,8 +90,7 @@ $(function() {
       var message = this.input.val();
       if(!message) return;
       
-      this.tweetList.add({message: message});
-      console.log('done');
+      this.tweetList.add(new Tweet({message: message}));
       this.input.val('');
     }
   });

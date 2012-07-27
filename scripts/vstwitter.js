@@ -78,17 +78,31 @@ $(function() {
   var TweetApp = Backbone.View.extend({
     el: $("#app"),
     events: {
-      "click .submit" : "submitTweet"
+      "click .submit" : "submitTweet",
+      "keyup #tweet-message" : "updateCounter"
     },
   
     initialize: function() {
       this.tweetList = new TweetList;
       this.tweetListView = new TweetListView({collection: this.tweetList});
       this.input = this.$('#tweet-message');
+      
+      this.tweetMaxCount = 140;
+      this.tweetCounter = this.$("#tweet-count");
+      
+      this.render();
     },
   
     render: function() {
+      this.updateCounter();
       return this;
+    },
+    
+    updateCounter: function() {
+      var tweetLength = this.input.val().length;
+      var tweetCount = this.tweetMaxCount - tweetLength;
+      
+      this.tweetCounter.text(tweetCount);
     },
     
     submitTweet: function() {

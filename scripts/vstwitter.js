@@ -24,6 +24,7 @@ $(function() {
   
     render: function() {
       this.$el.html(this.template(this.model.toJSON()));
+      return this;
     },
   
     remove: function() {
@@ -32,6 +33,8 @@ $(function() {
   });
 
   var TweetListView = Backbone.View.extend({
+    el: $("#tweets-container"),
+    
     initialize: function() {
       this.collection.on('add', this.addOne, this);
       this.collection.on('reset', this.addAll, this);
@@ -44,7 +47,7 @@ $(function() {
   
     addOne: function(tweet) {
       var view = new TweetView({model: tweet});
-      this.$el.append(view.render().el);
+      this.$el.prepend(view.render().el);
     },
   
     addAll: function() {
@@ -54,17 +57,28 @@ $(function() {
   });
 
   var TweetApp = Backbone.View.extend({
+    el: $("#app"),
     events: {
-    
+      "click .submit" : "submitTweet"
     },
   
     initialize: function() {
       this.tweetList = new TweetList;
       this.tweetListView = new TweetListView({collection: this.tweetList});
+      this.input = this.$('#tweet-message');
     },
   
     render: function() {
-      $(".tweets-container").append(this.tweetListView.render().el);
+      return this;
+    },
+    
+    submitTweet: function() {
+      var message = this.input.val();
+      if(!message) return;
+      
+      this.tweetList.add({message: message});
+      console.log('done');
+      this.input.val('');
     }
   });
   

@@ -9,7 +9,7 @@
 		<div class="avatar"></div>
 		<div class="content">
 			<div class="name"><%= name %></div>
-			<div class="message"><%= message %></div>
+			<div class="message"><%= message.replace(/\n/g, '<br />') %></div>
 		</div>
 		<div class="date"><%= timestamp %></div>
 		<ul class="action">

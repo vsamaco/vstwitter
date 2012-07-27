@@ -1,4 +1,4 @@
-$(function() {
+$(function() {  
   var Tweet = Backbone.Model.extend({
     defaults: function() {
       return {
@@ -15,7 +15,8 @@ $(function() {
   });
 
   var TweetList = Backbone.Collection.extend({
-    model: Tweet
+    model: Tweet,
+    noPersistence: new bnp.NoPersistence() // disable persistence
   });
 
   var TweetView = Backbone.View.extend({
@@ -28,7 +29,6 @@ $(function() {
   
     initialize: function() {
       this.model.on('change', this.render, this);
-      this.model.on('destroy', this.remove, this);
     },
   
     render: function() {
@@ -38,7 +38,12 @@ $(function() {
     },
   
     remove: function() {
-      this.model.clear();
+      var self = this;
+      this.model.destroy({
+        success: function(model, response) {
+          self.$el.remove();
+        }
+      })
     },
     
     toggleFavorite: function() {
@@ -90,7 +95,7 @@ $(function() {
       var message = this.input.val();
       if(!message) return;
       
-      this.tweetList.add(new Tweet({message: message}));
+      this.tweetList.create({message: message});
       this.input.val('');
     }
   });

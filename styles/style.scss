@@ -6,16 +6,25 @@
 
 $color-black: #000000;
 $color-white: #ffffff;
-$color-light-gray: #D1D1D1;
+$color-white-smoke: #F5F5F5;
+$color-light-gray: #CCCCCC;
+$color-medium-gray: #D1D1D1;
 $color-dark-gray: #333333;
+$color-light-green: #E6EFC2;
+$color-green: #529214;
 
 $h1-shadow: $color-light-gray;
 
-$body-background: $color-light-gray;
+$body-background: $color-medium-gray;
 $body-text: rgba(0, 0, 0, .5);
-$app-border: $color-light-gray;
+$app-border: $color-medium-gray;
 $app-background: $color-white;
 $app-shadow: $color-dark-gray;
+
+$tweet-box-submit-background: $color-white-smoke;
+$tweet-box-submit-border: $color-light-gray;
+$tweet-box-submit-text: $color-green;
+$tweet-box-submit-background-hover: $color-light-green;
 
 $tweet-name-text: $color-black;
 $tweet-bottom-border: $color-dark-gray;
@@ -51,7 +60,7 @@ h2 {
 }
 
 #tweets-container {
-	.tweet {
+	li.tweet {
 		@include clearfix;
 		position: relative;
 		padding: 10px 10px 10px 90px;
@@ -102,6 +111,41 @@ h2 {
 	
 	.tweet:last-child {
 		border: none;
+	}
+}
+
+#tweet-box {
+	padding: 10px;
+
+	#tweet-message {
+		width: 373px;
+		height: 50px;
+		font-size: 0.8em;
+	}
+	
+	footer {
+		margin: 10px 0 0;
+		text-align: right;
+		
+		#tweet-count {
+			font-size: 14px;
+			margin: 0 5px 0;
+		}
+		
+		.submit {
+			@include border-radius(2px);
+		
+			padding: 5px 8px;
+			background: $tweet-box-submit-background;
+			border: 1px solid $tweet-box-submit-border;
+			color: $tweet-box-submit-text;
+			font-size: 12px;
+			cursor: pointer;
+			
+			&:hover {
+				background-color: $tweet-box-submit-background-hover;
+			}
+		}
 	}
 }
 

@@ -119,6 +119,7 @@ $(function() {
       
       this.tweetList.create({message: message});
       this.input.val('');
+      this.updateCounter();
     }
   });
   

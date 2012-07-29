@@ -21,6 +21,7 @@ $(function() {
 
   var TweetView = Backbone.View.extend({
     tagName: 'li',
+    className: 'tweet',
     template: _.template($("#tweet-template").html()),
     events: {
       "click .favorite" : "toggleFavorite",

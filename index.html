@@ -6,13 +6,13 @@
   <script src="scripts/backbone/backbone.js"></script>
 	<script src="scripts/backbone/backbone.nopersistence.js"></script>
 	<script type="text/template" id="tweet-template">
-		<div class="avatar"></div>
+		<div class="avatar"><div class="default"></div></div>
 		<div class="content">
 			<div class="name"><%= name %></div>
 			<div class="message"><%= message.replace(/\n/g, '<br />') %></div>
 		</div>
 		<div class="date"><%= timestamp %></div>
-		<ul class="action">
+		<ul class="actions">
 			<li><a href="#" class="reply">Reply</a></li>
 			<li><a href="#" class="favorite">Favorite</a></li>
 			<li><a href="#" class="delete">Delete</a></li>
@@ -32,7 +32,8 @@
 			<span id="tweet-count"></span>
 			<button class="submit">Submit</button>
 		</div>
-		<ul id="tweets-container"></ul>
+		<ul id="tweets-container">
+		</ul>
 	</div>
 </body>
 </html>

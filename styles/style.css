@@ -63,7 +63,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 20, style.scss */
+/* line 23, style.scss */
 body {
   font-family: Helvetica, Arial, san-serif;
   color: rgba(0, 0, 0, 0.5);
@@ -72,20 +72,20 @@ body {
   background-color: #d1d1d1;
 }
 
-/* line 28, style.scss */
+/* line 31, style.scss */
 h1 {
   font-size: 1.8em;
   line-height: 2.0em;
   text-shadow: 0px 1px 1px #d1d1d1;
 }
 
-/* line 34, style.scss */
+/* line 37, style.scss */
 h2 {
   font-size: 1.6em;
   line-height: 1.8em;
 }
 
-/* line 39, style.scss */
+/* line 42, style.scss */
 #app {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -102,4 +102,57 @@ h2 {
   margin: 0 auto;
   padding: 10px;
   width: 400px;
+}
+
+/* line 54, style.scss */
+#tweets-container .tweet {
+  overflow: hidden;
+  *zoom: 1;
+  position: relative;
+  padding: 10px 10px 10px 90px;
+  border-bottom: 1px solid #333333;
+}
+/* line 60, style.scss */
+#tweets-container .tweet .avatar {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 80px;
+}
+/* line 66, style.scss */
+#tweets-container .tweet .avatar .default {
+  border: 1px solid #000;
+  width: 72px;
+  height: 72px;
+}
+/* line 74, style.scss */
+#tweets-container .tweet .content .name {
+  color: black;
+  font-weight: bold;
+}
+/* line 79, style.scss */
+#tweets-container .tweet .content .message {
+  font-size: 0.9em;
+}
+/* line 84, style.scss */
+#tweets-container .tweet .date {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 12px;
+}
+/* line 91, style.scss */
+#tweets-container .tweet .actions {
+  margin: 10px 0 0;
+}
+/* line 94, style.scss */
+#tweets-container .tweet .actions li {
+  list-style-type: none;
+  float: left;
+  padding: 0 5px 5px 0;
+  font-size: 14px;
+}
+/* line 103, style.scss */
+#tweets-container .tweet:last-child {
+  border: none;
 }

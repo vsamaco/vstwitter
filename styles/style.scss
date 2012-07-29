@@ -17,6 +17,9 @@ $app-border: $color-light-gray;
 $app-background: $color-white;
 $app-shadow: $color-dark-gray;
 
+$tweet-name-text: $color-black;
+$tweet-bottom-border: $color-dark-gray;
+
 body {
 	font-family: Helvetica, Arial, san-serif;
 	color: $body-text;
@@ -45,5 +48,60 @@ h2 {
 	margin: 0 auto;
 	padding: 10px;
 	width: 400px;
+}
+
+#tweets-container {
+	.tweet {
+		@include clearfix;
+		position: relative;
+		padding: 10px 10px 10px 90px;
+		border-bottom: 1px solid $tweet-bottom-border;
+	
+		.avatar {
+			position: absolute;
+			left: 10px;
+			top: 10px;
+			width: 80px;
+			
+			.default {
+				border: 1px solid #000;
+				width: 72px;
+				height: 72px;
+			}
+		}
+		
+		.content {
+			.name {
+				color: $tweet-name-text;
+				font-weight: bold;
+			}
+			
+			.message {
+				font-size: 0.9em;
+			}
+		}
+		
+		.date {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			font-size: 12px;
+		}
+		
+		.actions {
+			margin: 10px 0 0;
+			
+			li {
+				list-style-type: none;
+				float: left;
+				padding: 0 5px 5px 0;
+				font-size: 14px;
+			}
+		}
+	}
+	
+	.tweet:last-child {
+		border: none;
+	}
 }
 

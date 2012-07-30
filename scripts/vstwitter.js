@@ -87,6 +87,7 @@ $(function() {
       this.tweetList = new TweetList;
       this.tweetListView = new TweetListView({collection: this.tweetList});
       this.input = this.$('#tweet-message');
+      this.submit = this.$('.submit');
       
       this.tweetMaxCount = 140;
       this.tweetCounter = this.$("#tweet-count");
@@ -108,8 +109,10 @@ $(function() {
       
       if (tweetCount < 0) {
         this.tweetCounter.addClass('maxed');
+        this.submit.attr('disabled', true);
       } else {
         this.tweetCounter.removeClass('maxed');
+        this.submit.attr('disabled', false);
       }
       
       this.tweetCounter.text(tweetCount);

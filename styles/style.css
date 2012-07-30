@@ -63,7 +63,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 32, style.scss */
+/* line 33, style.scss */
 body {
   font-family: Helvetica, Arial, san-serif;
   color: rgba(0, 0, 0, 0.5);
@@ -72,20 +72,20 @@ body {
   background-color: #d1d1d1;
 }
 
-/* line 40, style.scss */
+/* line 41, style.scss */
 h1 {
   font-size: 1.8em;
   line-height: 2.0em;
   text-shadow: 0px 1px 1px #cccccc;
 }
 
-/* line 46, style.scss */
+/* line 47, style.scss */
 h2 {
   font-size: 1.6em;
   line-height: 1.8em;
 }
 
-/* line 51, style.scss */
+/* line 52, style.scss */
 #app {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -104,7 +104,7 @@ h2 {
   width: 400px;
 }
 
-/* line 63, style.scss */
+/* line 64, style.scss */
 #tweets-container li.tweet {
   overflow: hidden;
   *zoom: 1;
@@ -112,14 +112,14 @@ h2 {
   padding: 10px 10px 10px 90px;
   border-bottom: 1px solid #333333;
 }
-/* line 69, style.scss */
+/* line 70, style.scss */
 #tweets-container li.tweet .avatar {
   position: absolute;
   left: 10px;
   top: 10px;
   width: 80px;
 }
-/* line 75, style.scss */
+/* line 76, style.scss */
 #tweets-container li.tweet .avatar .default {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -133,71 +133,71 @@ h2 {
   background-position: 50% 50%;
   background-size: 72px;
 }
-/* line 84, style.scss */
+/* line 85, style.scss */
 #tweets-container li.tweet .avatar .anivia {
   background: url("../images/anivia.jpg") center center;
 }
-/* line 85, style.scss */
+/* line 86, style.scss */
 #tweets-container li.tweet .avatar .default, #tweets-container li.tweet .avatar .ashe {
   background: url("../images/ashe.jpg") center center;
 }
-/* line 86, style.scss */
+/* line 87, style.scss */
 #tweets-container li.tweet .avatar .twistedfate {
   background: url("../images/twistedfate.jpg") center center;
 }
-/* line 90, style.scss */
+/* line 91, style.scss */
 #tweets-container li.tweet .content .name {
   color: black;
   font-weight: bold;
 }
-/* line 95, style.scss */
+/* line 96, style.scss */
 #tweets-container li.tweet .content .message {
   font-size: 0.9em;
 }
-/* line 100, style.scss */
+/* line 101, style.scss */
 #tweets-container li.tweet .date {
   position: absolute;
   top: 10px;
   right: 10px;
   font-size: 12px;
 }
-/* line 107, style.scss */
+/* line 108, style.scss */
 #tweets-container li.tweet .actions {
   margin: 10px 0 0;
 }
-/* line 110, style.scss */
+/* line 111, style.scss */
 #tweets-container li.tweet .actions li {
   list-style-type: none;
   float: left;
   padding: 0 5px 5px 0;
   font-size: 14px;
 }
-/* line 119, style.scss */
+/* line 120, style.scss */
 #tweets-container .tweet:last-child {
   border: none;
 }
 
-/* line 124, style.scss */
+/* line 125, style.scss */
 #tweet-box {
   padding: 10px;
 }
-/* line 127, style.scss */
+/* line 128, style.scss */
 #tweet-box #tweet-message {
   width: 373px;
   height: 50px;
   font-size: 0.8em;
 }
-/* line 133, style.scss */
+/* line 134, style.scss */
 #tweet-box footer {
   margin: 10px 0 0;
   text-align: right;
 }
-/* line 137, style.scss */
+/* line 138, style.scss */
 #tweet-box footer #tweet-count {
   font-size: 14px;
   margin: 0 5px 0;
 }
-/* line 142, style.scss */
+/* line 143, style.scss */
 #tweet-box footer .submit {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -210,9 +210,18 @@ h2 {
   border: 1px solid #cccccc;
   color: #529214;
   font-size: 12px;
+  font-weight: bold;
   cursor: pointer;
 }
-/* line 152, style.scss */
+/* line 154, style.scss */
 #tweet-box footer .submit:hover {
   background-color: #e6efc2;
+}
+/* line 158, style.scss */
+#tweet-box footer .submit:disabled {
+  color: #d1d1d1;
+}
+/* line 161, style.scss */
+#tweet-box footer .submit:disabled:hover {
+  background: #f5f5f5;
 }

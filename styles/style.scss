@@ -24,6 +24,7 @@ $app-shadow: $color-dark-gray;
 $tweet-box-submit-background: $color-white-smoke;
 $tweet-box-submit-border: $color-light-gray;
 $tweet-box-submit-text: $color-green;
+$tweet-box-submit-text-disabled: $color-medium-gray;
 $tweet-box-submit-background-hover: $color-light-green;
 
 $tweet-name-text: $color-black;
@@ -147,10 +148,19 @@ h2 {
 			border: 1px solid $tweet-box-submit-border;
 			color: $tweet-box-submit-text;
 			font-size: 12px;
+			font-weight: bold;
 			cursor: pointer;
 			
 			&:hover {
 				background-color: $tweet-box-submit-background-hover;
+			}
+			
+			&:disabled {
+				color: $tweet-box-submit-text-disabled;
+				
+				&:hover {
+					background: $tweet-box-submit-background;
+				}
 			}
 		}
 	}

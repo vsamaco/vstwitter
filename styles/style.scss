@@ -73,10 +73,17 @@ h2 {
 			width: 80px;
 			
 			.default {
+				@include border-radius(5px);
 				border: 1px solid #000;
 				width: 72px;
 				height: 72px;
+				background-position: 50% 50%;
+				background-size: 72px;
 			}
+			
+			.anivia {background: url('../images/anivia.jpg') center center;}
+			.default, .ashe {background: url('../images/ashe.jpg') center center;}
+			.twistedfate {background: url('../images/twistedfate.jpg') center center;}
 		}
 		
 		.content {

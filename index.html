@@ -8,7 +8,7 @@
   <script src="scripts/backbone/backbone.js"></script>
 	<script src="scripts/backbone/backbone.nopersistence.js"></script>
 	<script type="text/template" id="tweet-template">
-		<div class="avatar"><div class="default"></div></div>
+		<div class="avatar"><a class="<%= avatar %>"></a></div>
 		<div class="content">
 			<div class="name"><%= name %></div>
 			<div class="message"><%= message.replace(/\n/g, '<br />') %></div>
@@ -29,8 +29,16 @@
 <body>
 	<div id="app">
 		<h1>vs.twitter</h1>
+		<div id="user-box">
+			<input type="text" class="username" name="username" placeholder="username"/>
+			<div class="avatars">
+				<a class="anivia selected" data-value="anivia">anivia</a>
+				<a class="ashe" data-value="ashe">ashe</a>
+				<a class="twistedfate" data-value="twistedfate">twistedfate</a>
+			</div>
+		</div>
 		<div id="tweet-box">
-			<textarea id="tweet-message"></textarea>
+			<textarea id="tweet-message" placeholder="Enter a message"></textarea>
 			<footer class="actions">
 				<span id="tweet-count"></span>
 				<button class="submit">Submit</button>

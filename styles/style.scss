@@ -12,6 +12,7 @@ $color-medium-gray: #D1D1D1;
 $color-dark-gray: #333333;
 $color-light-green: #E6EFC2;
 $color-green: #529214;
+$color-gold: #FFDB4C;
 
 $h1-shadow: $color-light-gray;
 
@@ -20,6 +21,9 @@ $body-text: rgba(0, 0, 0, .5);
 $app-border: $color-medium-gray;
 $app-background: $color-white;
 $app-shadow: $color-dark-gray;
+
+$user-box-avatar-border: $color-medium-gray;
+$user-box-avatar-border-selected: $color-gold;
 
 $tweet-box-submit-background: $color-white-smoke;
 $tweet-box-submit-border: $color-light-gray;
@@ -73,18 +77,19 @@ h2 {
 			top: 10px;
 			width: 80px;
 			
-			.default {
+			a {
 				@include border-radius(5px);
 				border: 1px solid #000;
 				width: 72px;
 				height: 72px;
 				background-position: 50% 50%;
 				background-size: 72px;
-			}
+				display: block;
 			
-			.anivia {background: url('../images/anivia.jpg') center center;}
-			.default, .ashe {background: url('../images/ashe.jpg') center center;}
-			.twistedfate {background: url('../images/twistedfate.jpg') center center;}
+				&.anivia {background: url('../images/anivia.jpg') center center;}
+				&.ashe, &.default {background: url('../images/ashe.jpg') center center;}
+				&.twistedfate {background: url('../images/twistedfate.jpg') center center;}
+			}
 		}
 		
 		.content {
@@ -120,6 +125,43 @@ h2 {
 	
 	.tweet:last-child {
 		border: none;
+	}
+}
+
+#user-box {
+	@include clearfix;
+	position: relative;
+	padding: 5px 10px;
+	font-size: 14px;
+	
+	.username {
+		float: left;
+		height: 20px;
+	}
+
+	.avatars {
+		float: left;
+		
+		a {
+			@include border-radius(5px);
+			border: 3px solid $user-box-avatar-border;
+		
+			display: inline-block;
+			background-size: 32px;
+			width: 32px;
+			height: 32px;
+			margin-right: 1px;
+			cursor: pointer;
+			text-indent: -10000px;
+			
+			&.anivia {background: url('../images/anivia.jpg') center center;}
+			&.ashe {background: url('../images/ashe.jpg') center center;}
+			&.twistedfate {background: url('../images/twistedfate.jpg') center center;}
+			
+			&.selected {
+				border: 3px solid $user-box-avatar-border-selected;
+			}
+		}
 	}
 }
 

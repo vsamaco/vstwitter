@@ -4,6 +4,7 @@ $(function() {
       return {
         name: 'User',
         message: '',
+        avatar: 'default',
         timestamp: new Date(),
         favorite: false
       }
@@ -75,6 +76,30 @@ $(function() {
       this.collection.forEach(this.addOne, this);
     }
   });
+  
+  var UserView = Backbone.View.extend({
+    events: {
+      "click .avatars a" : "selectAvatar"
+    },
+    
+    initialize: function() {
+      this.username = this.$(".username");
+      this.avatars = this.$(".avatars a");
+    },
+    
+    selectAvatar: function(e) {
+      this.avatars.removeClass("selected");
+      $(e.target).addClass("selected");
+    },
+    
+    getUsername: function() {
+      return this.username.val();
+    },
+    
+    getAvatar: function() {
+      return this.$(".selected", this.avatars).attr("data-value");
+    }
+  })
 
   var TweetApp = Backbone.View.extend({
     el: $("#app"),
@@ -84,6 +109,9 @@ $(function() {
     },
   
     initialize: function() {
+      this.userView = new UserView({el: $("#user-box")});
+      this.userView.getAvatar();
+      
       this.tweetList = new TweetList;
       this.tweetListView = new TweetListView({collection: this.tweetList});
       this.input = this.$('#tweet-message');
@@ -119,12 +147,15 @@ $(function() {
     },
     
     submitTweet: function() {
+      var username = this.userView.getUsername();
+      var avatar = this.userView.getAvatar();
       var message = this.input.val();
-      if (!message) return;
+      
+      if (!message || !username) return;
       
       if (message.length > this.tweetMaxCount) return;
       
-      this.tweetList.create({message: message});
+      this.tweetList.create({name: username, avatar: avatar, message: message});
       this.input.val('');
       this.updateCounter();
     }

@@ -2,6 +2,8 @@
 <head>
 	<meta charset="utf8"/>
 	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/jquery.timeago.js"></script>
+	<script src="scripts/jquery.livequery.js"></script>
   <script src="scripts/underscore/underscore-min.js"></script>
   <script src="scripts/backbone/backbone.js"></script>
 	<script src="scripts/backbone/backbone.nopersistence.js"></script>
@@ -11,7 +13,7 @@
 			<div class="name"><%= name %></div>
 			<div class="message"><%= message.replace(/\n/g, '<br />') %></div>
 		</div>
-		<div class="date"><%= timestamp %></div>
+		<div class="date"><time class="timeago" datetime="<%= new Date(timestamp).toISOString() %>"><%= timestamp %></time></div>
 		<ul class="actions">
 			<li><a href="#" class="reply">Reply</a></li>
 			<li><a href="#" class="favorite">Favorite</a></li>
@@ -36,6 +38,9 @@
 		</div>
 		<ul id="tweets-container">
 		</ul>
+		<footer>
+			Created <time class="timeago" datetime="2012-07-29 22:06:00">July 29th 2012</time>
+		</footer>
 	</div>
 </body>
 </html>

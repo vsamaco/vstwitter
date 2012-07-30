@@ -92,6 +92,9 @@ $(function() {
       this.tweetCounter = this.$("#tweet-count");
       
       this.render();
+      this.$("time.timeago").livequery(function() {
+        $(this).timeago();
+      });
     },
   
     render: function() {

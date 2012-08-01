@@ -27,6 +27,11 @@ $user-box-avatar-border: $color-medium-gray;
 $user-box-avatar-border-selected: $color-gold;
 $user-box-edit-shadow: $color-medium-gray;
 
+$button-background: $color-white-smoke;
+$button-border: $color-light-gray;
+$button-text: $color-green;
+$button-background-hover: $color-light-green;
+
 $tweet-box-submit-background: $color-white-smoke;
 $tweet-box-submit-border: $color-light-gray;
 $tweet-box-submit-text: $color-green;
@@ -40,6 +45,22 @@ $tweet-bottom-border: $color-dark-gray;
 	&.anivia {background-image: url('../images/anivia.jpg');}
 	&.ashe, &.default {background-image: url('../images/ashe.jpg');}
 	&.twistedfate {background-image: url('../images/twistedfate.jpg');}
+}
+
+@mixin button {
+	@include border-radius(2px);
+
+	padding: 5px 8px;
+	background: $button-background;
+	border: 1px solid $button-border;
+	color: $button-text;
+	font-size: 12px;
+	font-weight: bold;
+	cursor: pointer;
+	
+	&:hover {
+		background-color: $button-background-hover;
+	}
 }
 
 body {
@@ -248,6 +269,10 @@ h2 {
 		
 		.actions {
 			text-align: right;
+			
+			.save {
+				@include button;
+			}
 		}
 	}
 }

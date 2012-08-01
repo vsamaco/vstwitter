@@ -99,7 +99,7 @@ $(function() {
     getAvatar: function() {
       return this.$(".selected", this.avatars).attr("data-value");
     }
-  })
+  });
 
   var TweetApp = Backbone.View.extend({
     el: $("#app"),

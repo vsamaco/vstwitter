@@ -118,7 +118,12 @@ $(function() {
     },
     
     saveUser: function() {
-      this.username = this.username_input.val() || "User";
+      this.username = this.username_input.val();
+      if (!this.username) {
+        this.username_input.focus();
+        return;
+      }
+      
       this.avatar = this.$(".selected", this.avatars).attr("data-value") || "default";
       
       this.username_display.html(this.username);
@@ -195,7 +200,10 @@ $(function() {
       var avatar = this.userView.getAvatar();
       var message = this.input.val();
       
-      if (!message || !username) return;
+      if (!message || !username) {
+        this.input.focus();
+        return;
+      }
       
       if (message.length > this.tweetMaxCount) return;
       

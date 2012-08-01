@@ -25,6 +25,7 @@ $app-shadow: $color-dark-gray;
 
 $user-box-avatar-border: $color-medium-gray;
 $user-box-avatar-border-selected: $color-gold;
+$user-box-edit-shadow: $color-medium-gray;
 
 $tweet-box-submit-background: $color-white-smoke;
 $tweet-box-submit-border: $color-light-gray;
@@ -34,6 +35,12 @@ $tweet-box-submit-background-hover: $color-light-green;
 
 $tweet-name-text: $color-black;
 $tweet-bottom-border: $color-dark-gray;
+
+@mixin avatars {
+	&.anivia {background-image: url('../images/anivia.jpg');}
+	&.ashe, &.default {background-image: url('../images/ashe.jpg');}
+	&.twistedfate {background-image: url('../images/twistedfate.jpg');}
+}
 
 body {
 	font-family: Helvetica, Arial, san-serif;
@@ -96,7 +103,6 @@ h2 {
 		
 		.content {
 			.name {
-				color: $tweet-name-text;
 				font-weight: bold;
 			}
 			
@@ -151,33 +157,86 @@ h2 {
 	padding: 5px 10px;
 	font-size: 14px;
 	
-	.username {
-		float: left;
-		height: 20px;
-	}
-
-	.avatars {
-		float: left;
-		
-		a {
+	.display {
+		@include clearfix;
+	
+		.avatar {
+			@include avatars;
 			@include border-radius(5px);
 			@include background-size(contain);
-			border: 3px solid $user-box-avatar-border;
 		
+			float: left;
 			display: inline-block;
 			width: 32px;
 			height: 32px;
 			margin-right: 1px;
 			cursor: pointer;
 			text-indent: -10000px;
+		}
+		
+		.username {
+			float: left;
+		}
+	}
+
+	.edit {
+		@include clearfix;
+		@include box-shadow($user-box-edit-shadow 1px 1px 1px);
+		
+		border: 1px solid #000;
+		padding: 10px;
+		margin: 5px 0 0;
+	
+		fieldset {
+			@include clearfix;
+			margin-bottom: 10px;
 			
-			&.anivia {background-image: url('../images/anivia.jpg');}
-			&.ashe {background-image: url('../images/ashe.jpg');}
-			&.twistedfate {background-image: url('../images/twistedfate.jpg');}
-			
-			&.selected {
-				border: 3px solid $user-box-avatar-border-selected;
+			label {
+				float: left;
+				width: 100px;
+				text-align: right;
 			}
+		
+			.values {
+				float: left;
+				margin-left: 10px;
+				
+				.username {
+					height: 20px;
+				}
+				
+				.avatars {
+				
+					list-style-type: none;
+					
+					li {
+						float: left;
+						margin-right: 2px;
+					
+						a {
+							@include avatars;
+							@include border-radius(5px);
+							@include background-size(contain);
+							border: 3px solid $user-box-avatar-border;
+
+							display: inline-block;
+							width: 32px;
+							height: 32px;
+							margin-right: 1px;
+							cursor: pointer;
+							text-indent: -10000px;
+							
+							&.selected {
+								border: 3px solid $user-box-avatar-border-selected;
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		.actions {
+			text-align: right;
 		}
 	}
 }

@@ -30,11 +30,30 @@
 	<div id="app">
 		<h1>vs.twitter</h1>
 		<div id="user-box">
-			<input type="text" class="username" name="username" placeholder="username"/>
-			<div class="avatars">
-				<a class="anivia selected" data-value="anivia">anivia</a>
-				<a class="ashe" data-value="ashe">ashe</a>
-				<a class="twistedfate" data-value="twistedfate">twistedfate</a>
+			<div class="display">
+				<div class="avatar default"></div>
+				<div class="name">John Doe</div>
+			</div>
+			<div class="edit">
+				<fieldset id="username_fieldset">
+					<label for="username">Username</label>
+					<div class="values">
+						<input type="text" class="username" name="username" placeholder="username"/>
+					</div>
+				</fieldset>
+				<fieldset id="avatar_fieldset">
+					<label for="avatars">Avatar</label>
+					<div class="values">
+						<ul class="avatars">
+							<li><a class="anivia selected" data-value="anivia">anivia</a>
+							<li><a class="ashe" data-value="ashe">ashe</a>
+							<li><a class="twistedfate" data-value="twistedfate">twistedfate</a>
+						</ul>
+					</div>
+				</fieldset>
+				<div class="actions">
+					<button class="save">Save</button>
+				</div>
 			</div>
 		</div>
 		<div id="tweet-box">

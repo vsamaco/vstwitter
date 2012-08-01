@@ -298,19 +298,7 @@ h2 {
 		}
 		
 		.submit {
-			@include border-radius(2px);
-		
-			padding: 5px 8px;
-			background: $tweet-box-submit-background;
-			border: 1px solid $tweet-box-submit-border;
-			color: $tweet-box-submit-text;
-			font-size: 12px;
-			font-weight: bold;
-			cursor: pointer;
-			
-			&:hover {
-				background-color: $tweet-box-submit-background-hover;
-			}
+			@include button;
 			
 			&:disabled {
 				color: $tweet-box-submit-text-disabled;

@@ -399,15 +399,15 @@ h2 {
   font-weight: bold;
   cursor: pointer;
 }
-/* line 311, style.scss */
+/* line 61, style.scss */
 #tweet-box footer .submit:hover {
   background-color: #e6efc2;
 }
-/* line 315, style.scss */
+/* line 303, style.scss */
 #tweet-box footer .submit:disabled {
   color: #d1d1d1;
 }
-/* line 318, style.scss */
+/* line 306, style.scss */
 #tweet-box footer .submit:disabled:hover {
   background: #f5f5f5;
 }

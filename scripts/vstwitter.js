@@ -138,6 +138,7 @@ $(function() {
     openEdit: function() {
       this.displayUser.hide();
       this.editUser.show();
+      this.username_input.focus();
       
       window.eventAggregator.trigger("toggleMessage", this);
     }
@@ -219,7 +220,9 @@ $(function() {
     },
     
     toggleMessage: function() {
-      this.tweetBox.toggle();
+      if (this.tweetBox.toggle()) {
+        this.input.focus();
+      }
     }
   });
   

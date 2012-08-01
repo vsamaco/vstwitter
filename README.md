@@ -8,13 +8,17 @@ By: Vincent Samaco
 vs.twitter is a simple Twitter clone using BackboneJS
 
 ##Features:
+* Set username and avatar
 * Create status messages of 140 character length
 * Displays a list of status message with name, message, timestamp, avatar
+* Reply message with @name prefilled
 * Delete status messages
-* Flag messages as favorite and reply
+* Mark message as favorite
 * Style all the things
 
 ##Technology:
 * jQuery
+* jQuery timeago
+* jQuery livequery
 * BackboneJS
 * Sass + Compass

@@ -26,7 +26,8 @@ $(function() {
     template: _.template($("#tweet-template").html()),
     events: {
       "click .favorite" : "toggleFavorite",
-      "click .delete" : "remove"
+      "click .delete" : "remove",
+      "click .reply" : "reply",
     },
   
     initialize: function() {
@@ -50,6 +51,10 @@ $(function() {
     
     toggleFavorite: function() {
       this.model.toggleFavorite();
+    },
+    
+    reply: function() {
+      window.eventAggregator.trigger("setupReply", this.model);
     }
   });
 
@@ -120,6 +125,8 @@ $(function() {
       this.tweetMaxCount = 140;
       this.tweetCounter = this.$("#tweet-count");
       
+      window.eventAggregator.on('setupReply', this.setupReply, this);
+      
       this.render();
       this.$("time.timeago").livequery(function() {
         $(this).timeago();
@@ -158,8 +165,16 @@ $(function() {
       this.tweetList.create({name: username, avatar: avatar, message: message});
       this.input.val('');
       this.updateCounter();
+    },
+    
+    setupReply: function(tweet) {
+      var name = "@" + tweet.get("name") + " ";
+      this.input.focus();
+      this.input.val(name);
     }
   });
+  
+  window.eventAggregator = _.extend({}, Backbone.Events);
   
   window.app = new TweetApp;
 });

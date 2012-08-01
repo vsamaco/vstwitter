@@ -14,6 +14,7 @@ $color-dark-gray: #333333;
 $color-light-green: #E6EFC2;
 $color-green: #529214;
 $color-gold: #FFDB4C;
+$color-blue: #15C;
 
 $h1-shadow: $color-light-gray;
 
@@ -40,6 +41,7 @@ $tweet-box-submit-background-hover: $color-light-green;
 
 $tweet-name-text: $color-black;
 $tweet-bottom-border: $color-dark-gray;
+$tweet-actions-text: $color-blue;
 
 @mixin avatars {
 	&.anivia {background-image: url('../images/anivia.jpg');}
@@ -143,8 +145,18 @@ h2 {
 			li {
 				list-style-type: none;
 				float: left;
-				padding: 0 5px 5px 0;
+				padding: 0 10px 5px 0;
 				font-size: 14px;
+				
+				a {
+					font-size: 0.9em;
+					color: $tweet-actions-text;
+					text-decoration: none;
+					
+					&:hover {
+						text-decoration: underline;
+					}
+				}
 			}
 		}
 		

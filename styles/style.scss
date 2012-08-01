@@ -157,29 +157,43 @@ h2 {
 	padding: 5px 10px;
 	font-size: 14px;
 	
-	.display {
+	.display-user {
 		@include clearfix;
 	
 		.avatar {
-			@include avatars;
-			@include border-radius(5px);
-			@include background-size(contain);
+			a {
+				@include avatars;
+				@include border-radius(5px);
+				@include background-size(contain);
 		
-			float: left;
-			display: inline-block;
-			width: 32px;
-			height: 32px;
-			margin-right: 1px;
-			cursor: pointer;
-			text-indent: -10000px;
+				float: left;
+				display: inline-block;
+				width: 32px;
+				height: 32px;
+				margin-right: 1px;
+				cursor: pointer;
+				text-indent: -10000px;
+			}
 		}
 		
 		.username {
 			float: left;
+			margin: 5px 0 0 5px;
+		}
+		
+		.open-edit {
+			display: none;
+			margin: 5px 0 0 3px;
+		}
+		
+		&:hover {
+			.open-edit {
+				display: inline-block;
+			}
 		}
 	}
 
-	.edit {
+	.edit-user {
 		@include clearfix;
 		@include box-shadow($user-box-edit-shadow 1px 1px 1px);
 		

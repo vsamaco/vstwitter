@@ -61,7 +61,7 @@ $(function() {
   var TweetListView = Backbone.View.extend({
     el: $("#tweets-container"),
     
-    initialize: function() {
+    initialize: function() {      
       this.collection.on('add', this.addOne, this);
       this.collection.on('reset', this.addAll, this);
     },
@@ -84,12 +84,24 @@ $(function() {
   
   var UserView = Backbone.View.extend({
     events: {
-      "click .avatars a" : "selectAvatar"
+      "click .avatars a" : "selectAvatar",
+      "click .save" : "saveUser",
+      "click .display-user" : "openEdit"
     },
     
     initialize: function() {
-      this.username = this.$(".username");
-      this.avatars = this.$(".avatars a");
+      this.username = "User";
+      this.avatar = "default";
+      
+      this.editUser = this.$(".edit-user");
+      this.username_input = this.$("input.username", this.editUser);
+      this.avatars = this.$(".avatars a", this.editUser);
+      
+      this.displayUser = this.$(".display-user");
+      this.username_display = this.$(".username", this.displayUser);
+      this.avatar_display = this.$(".avatar", this.displayUser);
+      
+      this.openEdit();
     },
     
     selectAvatar: function(e) {
@@ -98,11 +110,28 @@ $(function() {
     },
     
     getUsername: function() {
-      return this.username.val();
+      return this.username;
     },
     
     getAvatar: function() {
-      return this.$(".selected", this.avatars).attr("data-value");
+      return this.avatar;
+    },
+    
+    saveUser: function() {
+      console.log(this.username_input.val());
+      this.username = this.username_input.val() || "User";
+      this.avatar = this.$(".selected", this.avatars).attr("data-value") || "default";
+      
+      this.username_display.html(this.username);
+      this.avatar_display.html('<a class="' + this.avatar + '"></a>');
+      
+      this.displayUser.show();
+      this.editUser.hide();
+    },
+    
+    openEdit: function() {
+      this.displayUser.hide();
+      this.editUser.show();
     }
   });
 

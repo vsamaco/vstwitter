@@ -118,7 +118,6 @@ $(function() {
     },
     
     saveUser: function() {
-      console.log(this.username_input.val());
       this.username = this.username_input.val() || "User";
       this.avatar = this.$(".selected", this.avatars).attr("data-value") || "default";
       
@@ -127,11 +126,15 @@ $(function() {
       
       this.displayUser.show();
       this.editUser.hide();
+      
+      window.eventAggregator.trigger("toggleMessage", this);
     },
     
     openEdit: function() {
       this.displayUser.hide();
       this.editUser.show();
+      
+      window.eventAggregator.trigger("toggleMessage", this);
     }
   });
 
@@ -148,13 +151,18 @@ $(function() {
       
       this.tweetList = new TweetList;
       this.tweetListView = new TweetListView({collection: this.tweetList});
-      this.input = this.$('#tweet-message');
-      this.submit = this.$('.submit');
+      
+      this.tweetBox = this.$("#tweet-box");
+      this.tweetBox.hide();
+      
+      this.input = this.$('#tweet-message', this.tweetBox);
+      this.submit = this.$('.submit', this.tweetBox);
       
       this.tweetMaxCount = 140;
       this.tweetCounter = this.$("#tweet-count");
       
       window.eventAggregator.on('setupReply', this.setupReply, this);
+      window.eventAggregator.on('toggleMessage', this.toggleMessage, this);
       
       this.render();
       this.$("time.timeago").livequery(function() {
@@ -200,6 +208,10 @@ $(function() {
       var name = "@" + tweet.get("name") + " ";
       this.input.focus();
       this.input.val(name);
+    },
+    
+    toggleMessage: function() {
+      this.tweetBox.toggle();
     }
   });
   

@@ -35,7 +35,7 @@ $(function() {
   
     render: function() {
       this.$el.html(this.template(this.model.toJSON()));
-      this.$el.toggleClass('favorite', this.model.get('favorite'));
+      this.$("a.favorite").toggleClass('on', this.model.get('favorite'));
       return this;
     },
   

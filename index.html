@@ -9,6 +9,7 @@
 	<script src="scripts/backbone/backbone.nopersistence.js"></script>
 	<script type="text/template" id="tweet-template">
 		<div class="avatar"><a class="<%= avatar %>"></a></div>
+		<a href="#" class="favorite">Favorite</a>
 		<div class="content">
 			<div class="name"><%= name %></div>
 			<div class="message"><%= message.replace(/\n/g, '<br />') %></div>
@@ -16,7 +17,6 @@
 		<div class="date"><time class="timeago" datetime="<%= new Date(timestamp).toISOString() %>"><%= timestamp %></time></div>
 		<ul class="actions">
 			<li><a href="#" class="reply">Reply</a></li>
-			<li><a href="#" class="favorite">Favorite</a></li>
 			<li><a href="#" class="delete">Delete</a></li>
 		</ul>
 		</div>

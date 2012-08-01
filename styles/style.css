@@ -63,7 +63,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 37, style.scss */
+/* line 38, style.scss */
 body {
   font-family: Helvetica, Arial, san-serif;
   color: rgba(0, 0, 0, 0.5);
@@ -72,20 +72,20 @@ body {
   background-color: #d1d1d1;
 }
 
-/* line 45, style.scss */
+/* line 46, style.scss */
 h1 {
   font-size: 1.8em;
   line-height: 2.0em;
   text-shadow: 0px 1px 1px #cccccc;
 }
 
-/* line 51, style.scss */
+/* line 52, style.scss */
 h2 {
   font-size: 1.6em;
   line-height: 1.8em;
 }
 
-/* line 56, style.scss */
+/* line 57, style.scss */
 #app {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -104,20 +104,19 @@ h2 {
   width: 400px;
 }
 
-/* line 68, style.scss */
+/* line 69, style.scss */
 #tweets-container li.tweet {
   overflow: hidden;
   *zoom: 1;
   position: relative;
-  padding: 10px 10px 10px 90px;
+  padding: 10px 10px 10px 70px;
   border-bottom: 1px solid #333333;
 }
-/* line 74, style.scss */
+/* line 75, style.scss */
 #tweets-container li.tweet .avatar {
   position: absolute;
   left: 10px;
   top: 10px;
-  width: 80px;
 }
 /* line 80, style.scss */
 #tweets-container li.tweet .avatar a {
@@ -127,24 +126,27 @@ h2 {
   -ms-border-radius: 5px;
   -khtml-border-radius: 5px;
   border-radius: 5px;
+  -moz-background-size: contain;
+  -webkit-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
   border: 1px solid #000;
-  width: 72px;
-  height: 72px;
+  width: 48px;
+  height: 48px;
   background-position: 50% 50%;
-  background-size: 72px;
   display: block;
 }
 /* line 89, style.scss */
 #tweets-container li.tweet .avatar a.anivia {
-  background: url("../images/anivia.jpg") center center;
+  background-image: url("../images/anivia.jpg");
 }
 /* line 90, style.scss */
 #tweets-container li.tweet .avatar a.ashe, #tweets-container li.tweet .avatar a.default {
-  background: url("../images/ashe.jpg") center center;
+  background-image: url("../images/ashe.jpg");
 }
 /* line 91, style.scss */
 #tweets-container li.tweet .avatar a.twistedfate {
-  background: url("../images/twistedfate.jpg") center center;
+  background-image: url("../images/twistedfate.jpg");
 }
 /* line 96, style.scss */
 #tweets-container li.tweet .content .name {
@@ -204,9 +206,12 @@ h2 {
   -ms-border-radius: 5px;
   -khtml-border-radius: 5px;
   border-radius: 5px;
+  -moz-background-size: contain;
+  -webkit-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
   border: 3px solid #d1d1d1;
   display: inline-block;
-  background-size: 32px;
   width: 32px;
   height: 32px;
   margin-right: 1px;
@@ -215,15 +220,15 @@ h2 {
 }
 /* line 157, style.scss */
 #user-box .avatars a.anivia {
-  background: url("../images/anivia.jpg") center center;
+  background-image: url("../images/anivia.jpg");
 }
 /* line 158, style.scss */
 #user-box .avatars a.ashe {
-  background: url("../images/ashe.jpg") center center;
+  background-image: url("../images/ashe.jpg");
 }
 /* line 159, style.scss */
 #user-box .avatars a.twistedfate {
-  background: url("../images/twistedfate.jpg") center center;
+  background-image: url("../images/twistedfate.jpg");
 }
 /* line 161, style.scss */
 #user-box .avatars a.selected {

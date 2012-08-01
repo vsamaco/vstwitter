@@ -2,6 +2,7 @@
 @import "compass/utilities/general/clearfix";
 @import "compass/css3/border-radius";
 @import "compass/css3/box-shadow";
+@import "compass/css3/background-size";
 
 
 $color-black: #000000;
@@ -68,27 +69,26 @@ h2 {
 	li.tweet {
 		@include clearfix;
 		position: relative;
-		padding: 10px 10px 10px 90px;
+		padding: 10px 10px 10px 70px;
 		border-bottom: 1px solid $tweet-bottom-border;
 	
 		.avatar {
 			position: absolute;
 			left: 10px;
 			top: 10px;
-			width: 80px;
 			
 			a {
 				@include border-radius(5px);
+				@include background-size(contain);
 				border: 1px solid #000;
-				width: 72px;
-				height: 72px;
+				width: 48px;
+				height: 48px;
 				background-position: 50% 50%;
-				background-size: 72px;
 				display: block;
 			
-				&.anivia {background: url('../images/anivia.jpg') center center;}
-				&.ashe, &.default {background: url('../images/ashe.jpg') center center;}
-				&.twistedfate {background: url('../images/twistedfate.jpg') center center;}
+				&.anivia {background-image: url('../images/anivia.jpg');}
+				&.ashe, &.default {background-image: url('../images/ashe.jpg');}
+				&.twistedfate {background-image: url('../images/twistedfate.jpg');}
 			}
 		}
 		
@@ -144,19 +144,19 @@ h2 {
 		
 		a {
 			@include border-radius(5px);
+			@include background-size(contain);
 			border: 3px solid $user-box-avatar-border;
 		
 			display: inline-block;
-			background-size: 32px;
 			width: 32px;
 			height: 32px;
 			margin-right: 1px;
 			cursor: pointer;
 			text-indent: -10000px;
 			
-			&.anivia {background: url('../images/anivia.jpg') center center;}
-			&.ashe {background: url('../images/ashe.jpg') center center;}
-			&.twistedfate {background: url('../images/twistedfate.jpg') center center;}
+			&.anivia {background-image: url('../images/anivia.jpg');}
+			&.ashe {background-image: url('../images/ashe.jpg');}
+			&.twistedfate {background-image: url('../images/twistedfate.jpg');}
 			
 			&.selected {
 				border: 3px solid $user-box-avatar-border-selected;

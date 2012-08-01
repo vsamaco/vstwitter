@@ -82,6 +82,13 @@ $(function() {
     }
   });
   
+  var User = Backbone.Model.extend({
+    defaults: {
+      username: "User",
+      avatar: "default"
+    }
+  });
+  
   var UserView = Backbone.View.extend({
     events: {
       "click .avatars a" : "selectAvatar",
@@ -90,8 +97,7 @@ $(function() {
     },
     
     initialize: function() {
-      this.username = "User";
-      this.avatar = "default";
+      this.model.on('change', this.render, this);
       
       this.editUser = this.$(".edit-user");
       this.username_input = this.$("input.username", this.editUser);
@@ -104,31 +110,35 @@ $(function() {
       this.openEdit();
     },
     
+    render: function() {
+      this.username_display.html(this.model.get('username'));
+      this.avatar_display.html('<a class="' + this.model.get('avatar') + '"></a>');
+      
+      return this;
+    },
+    
     selectAvatar: function(e) {
       this.avatars.removeClass("selected");
       $(e.target).addClass("selected");
     },
     
     getUsername: function() {
-      return this.username;
+      return this.model.get("username");
     },
     
     getAvatar: function() {
-      return this.avatar;
+      return this.model.get("avatar");
     },
     
     saveUser: function() {
-      this.username = this.username_input.val();
-      if (!this.username) {
+      var username = this.username_input.val();
+      if (!username) {
         this.username_input.focus();
         return;
       }
       
-      this.avatar = this.$(".selected", this.avatars).attr("data-value") || "default";
-      
-      this.username_display.html(this.username);
-      this.avatar_display.html('<a class="' + this.avatar + '"></a>');
-      
+      var avatar = this.$(".selected", this.avatars).attr("data-value");
+      this.model.save({username: username, avatar: avatar});
       this.displayUser.show();
       this.editUser.hide();
       
@@ -152,7 +162,8 @@ $(function() {
     },
   
     initialize: function() {
-      this.userView = new UserView({el: $("#user-box")});
+      this.user = new User();
+      this.userView = new UserView({model: this.user, el: $("#user-box")});
       this.userView.getAvatar();
       
       this.tweetList = new TweetList;
@@ -197,8 +208,8 @@ $(function() {
     },
     
     submitTweet: function() {
-      var username = this.userView.getUsername();
-      var avatar = this.userView.getAvatar();
+      var username = this.user.get("username");
+      var avatar = this.user.get("avatar");
       var message = this.input.val();
       
       if (!message || !username) {

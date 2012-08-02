@@ -23,6 +23,7 @@ $header-text: $color-dark-gray;
 $body-background: $color-medium-gray;
 $body-text: $color-off-black;
 $footer-link-text: $color-off-black;
+$footer-shadow: $color-white-smoke;
 
 $app-text: $color-medium-gray;
 $app-border: $color-medium-gray;
@@ -116,6 +117,7 @@ footer {
 	margin: 10px 0;
 	text-align: center;
 	font-size: 0.8em;
+	text-shadow: 1px 1px $footer-shadow;
 	
 	a {
 		color: $footer-link-text;

@@ -21,4 +21,5 @@ vs.twitter is a simple Twitter clone using BackboneJS
 * jQuery timeago
 * jQuery livequery
 * BackboneJS
+* Backbone nopersistence
 * Sass + Compass

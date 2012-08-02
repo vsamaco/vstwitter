@@ -16,17 +16,22 @@ $color-green: #529214;
 $color-gold: #FFDB4C;
 $color-blue: #15C;
 
-$h1-shadow: $color-light-gray;
-
+$h1-shadow: $color-white-smoke;
+$header-background: $color-black;
+$header-text: $color-dark-gray;
 $body-background: $color-medium-gray;
 $body-text: rgba(0, 0, 0, .5);
+
+$app-text: $color-medium-gray;
 $app-border: $color-medium-gray;
 $app-background: $color-white;
 $app-shadow: $color-dark-gray;
 
+$user-box-edit-border: $color-light-gray;
 $user-box-avatar-border: $color-medium-gray;
 $user-box-avatar-border-selected: $color-gold;
 $user-box-edit-shadow: $color-medium-gray;
+$user-box-edit-username-border: $color-medium-gray;
 
 $button-background: $color-white-smoke;
 $button-border: $color-light-gray;
@@ -40,7 +45,7 @@ $tweet-box-submit-text-disabled: $color-medium-gray;
 $tweet-box-submit-background-hover: $color-light-green;
 
 $tweet-name-text: $color-black;
-$tweet-bottom-border: $color-dark-gray;
+$tweet-border: $color-medium-gray;
 $tweet-actions-text: $color-blue;
 
 @mixin avatars {
@@ -76,7 +81,6 @@ body {
 h1 {
 	font-size: 1.8em;
 	line-height: 2.0em;
-	text-shadow: 0px 1px 1px $h1-shadow;
 }
 
 h2 {
@@ -84,15 +88,31 @@ h2 {
 	line-height: 1.8em;
 }
 
+#wrap {
+	margin: 0 auto;
+	width: 420px;
+}
+
+header {
+	h1 {
+		text-shadow: 0px 1px 1px $h1-shadow;
+		font-family: Arial, san-serif;
+		font-weight: bold;
+		color: $header-text;
+	}
+}
+
 #app {
 	@include border-radius(5px);
 	@include box-shadow($app-shadow 1px 1px 1px);
 	
 	background-color: $app-background;
-	border: 1px solid $app-border;
-	margin: 0 auto;
 	padding: 10px;
-	width: 400px;
+}
+
+footer {
+	margin: 10px 0 0;
+	font-size: 0.8em;
 }
 
 #tweets-container {
@@ -102,7 +122,7 @@ h2 {
 		@include clearfix;
 		position: relative;
 		padding: 10px 10px 10px 80px;
-		border-bottom: 1px solid $tweet-bottom-border;
+		border-top: 1px solid $tweet-border;
 	
 		.avatar {
 			position: absolute;
@@ -177,7 +197,7 @@ h2 {
 	}
 	
 	.tweet:last-child {
-		border: none;
+
 	}
 }
 
@@ -225,9 +245,9 @@ h2 {
 
 	.edit-user {
 		@include clearfix;
-		@include box-shadow($user-box-edit-shadow 1px 1px 1px);
+		@include border-radius(5px);
 		
-		border: 1px solid #000;
+		border: 1px solid $user-box-edit-border;
 		padding: 10px;
 		margin: 5px 0 0;
 	
@@ -239,6 +259,7 @@ h2 {
 				float: left;
 				width: 100px;
 				text-align: right;
+				font-weight: bold;
 			}
 		
 			.values {
@@ -246,6 +267,10 @@ h2 {
 				margin-left: 10px;
 				
 				.username {
+					@include border-radius(2px);
+					border: 1px solid $user-box-edit-username-border;
+					-webkit-appearance: textfield;
+					padding: 0 5px;
 					height: 20px;
 				}
 				

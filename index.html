@@ -27,45 +27,49 @@
 
 </head>
 <body>
-	<div id="app">
-		<h1>vs.twitter</h1>
-		<div id="user-box">
-			<div class="display-user">
-				<div class="avatar"></div>
-				<div class="username"></div>
-				<a class="open-edit">▼</a>
-			</div>
-			<div class="edit-user">
-				<fieldset id="username_fieldset">
-					<label for="username">Username</label>
-					<div class="values">
-						<input type="text" class="username" name="username" placeholder="username"/>
+	<div id="wrap">
+		<header id="app-header">
+			<h1>vs.twitter</h1>
+		</header>
+		<div id="app">
+			<div id="user-box">
+				<div class="display-user">
+					<div class="avatar"></div>
+					<div class="username"></div>
+					<a class="open-edit">▼</a>
+				</div>
+				<div class="edit-user">
+					<fieldset id="username_fieldset">
+						<label for="username">Username</label>
+						<div class="values">
+							<input type="text" class="username" name="username" placeholder="Enter username"/>
+						</div>
+					</fieldset>
+					<fieldset id="avatar_fieldset">
+						<label for="avatars">Avatar</label>
+						<div class="values">
+							<ul class="avatars">
+								<li><a class="anivia selected" data-value="anivia">anivia</a>
+								<li><a class="ashe" data-value="ashe">ashe</a>
+								<li><a class="twistedfate" data-value="twistedfate">twistedfate</a>
+							</ul>
+						</div>
+					</fieldset>
+					<div class="actions">
+						<button class="save">Save</button>
 					</div>
-				</fieldset>
-				<fieldset id="avatar_fieldset">
-					<label for="avatars">Avatar</label>
-					<div class="values">
-						<ul class="avatars">
-							<li><a class="anivia selected" data-value="anivia">anivia</a>
-							<li><a class="ashe" data-value="ashe">ashe</a>
-							<li><a class="twistedfate" data-value="twistedfate">twistedfate</a>
-						</ul>
-					</div>
-				</fieldset>
-				<div class="actions">
-					<button class="save">Save</button>
 				</div>
 			</div>
+			<div id="tweet-box">
+				<textarea id="tweet-message" placeholder="Enter a message"></textarea>
+				<footer class="actions">
+					<span id="tweet-count"></span>
+					<button class="submit">Submit</button>
+				</footer>
+			</div>
+			<ul id="tweets-container">
+			</ul>
 		</div>
-		<div id="tweet-box">
-			<textarea id="tweet-message" placeholder="Enter a message"></textarea>
-			<footer class="actions">
-				<span id="tweet-count"></span>
-				<button class="submit">Submit</button>
-			</footer>
-		</div>
-		<ul id="tweets-container">
-		</ul>
 		<footer>
 			Created <time class="timeago" datetime="2012-07-29 22:06:00">July 29th 2012</time>
 		</footer>

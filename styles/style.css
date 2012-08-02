@@ -106,10 +106,10 @@ header h1 {
   -ms-border-radius: 5px;
   -khtml-border-radius: 5px;
   border-radius: 5px;
-  -moz-box-shadow: #333333 1px 1px 1px;
-  -webkit-box-shadow: #333333 1px 1px 1px;
-  -o-box-shadow: #333333 1px 1px 1px;
-  box-shadow: #333333 1px 1px 1px;
+  -moz-box-shadow: #333333 0px 0px 10px;
+  -webkit-box-shadow: #333333 0px 0px 10px;
+  -o-box-shadow: #333333 0px 0px 10px;
+  box-shadow: #333333 0px 0px 10px;
   background-color: white;
   padding: 10px;
 }

@@ -106,7 +106,7 @@ header {
 
 #app {
 	@include border-radius(5px);
-	@include box-shadow($app-shadow 1px 1px 1px);
+	@include box-shadow($app-shadow 0px 0px 10px);
 	
 	background-color: $app-background;
 	padding: 10px;

@@ -230,6 +230,10 @@ footer a:hover {
 #tweets-container li.tweet a.favorite.on {
   background-image: url("../images/star-lit4.png");
 }
+/* line 211, style.scss */
+#tweets-container .tweet:first-child {
+  margin: 10px 0;
+}
 
 /* line 216, style.scss */
 #user-box {

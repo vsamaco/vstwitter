@@ -6,6 +6,7 @@
 
 
 $color-black: #000000;
+$color-off-black: rgba(0, 0, 0, .5);
 $color-white: #ffffff;
 $color-white-smoke: #F5F5F5;
 $color-light-gray: #CCCCCC;
@@ -20,7 +21,8 @@ $h1-shadow: $color-white-smoke;
 $header-background: $color-black;
 $header-text: $color-dark-gray;
 $body-background: $color-medium-gray;
-$body-text: rgba(0, 0, 0, .5);
+$body-text: $color-off-black;
+$footer-link-text: $color-off-black;
 
 $app-text: $color-medium-gray;
 $app-border: $color-medium-gray;
@@ -111,8 +113,18 @@ header {
 }
 
 footer {
-	margin: 10px 0 0;
+	margin: 10px 0;
+	text-align: center;
 	font-size: 0.8em;
+	
+	a {
+		color: $footer-link-text;
+		text-decoration: none;
+		
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }
 
 #tweets-container {
@@ -121,12 +133,12 @@ footer {
 	li.tweet {
 		@include clearfix;
 		position: relative;
-		padding: 10px 10px 10px 80px;
+		padding: 10px 0px 10px 70px;
 		border-top: 1px solid $tweet-border;
 	
 		.avatar {
 			position: absolute;
-			left: 20px;
+			left: 10px;
 			top: 10px;
 			
 			a {
@@ -204,7 +216,6 @@ footer {
 #user-box {
 	@include clearfix;
 	position: relative;
-	padding: 5px 10px;
 	font-size: 14px;
 	
 	.display-user {
@@ -229,6 +240,8 @@ footer {
 		.username {
 			float: left;
 			margin: 5px 0 0 5px;
+			font-weight: bold;
+			cursor: pointer;
 		}
 		
 		.open-edit {
@@ -249,7 +262,6 @@ footer {
 		
 		border: 1px solid $user-box-edit-border;
 		padding: 10px;
-		margin: 5px 0 0;
 	
 		fieldset {
 			@include clearfix;
@@ -315,13 +327,13 @@ footer {
 }
 
 #tweet-box {
-	padding: 10px;
+	padding: 10px 0;
 
 	#tweet-message {
-		width: 373px;
+		width: 393px;
 		height: 50px;
 		font-size: 0.8em;
-		max-width: 373px;
+		max-width: 393px;
 		max-height: 100px;
 	}
 	

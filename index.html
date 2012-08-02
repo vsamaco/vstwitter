@@ -14,7 +14,7 @@
 			<div class="name"><%= name %></div>
 			<div class="message"><%= message.replace(/\n/g, '<br />') %></div>
 		</div>
-		<div class="date"><time class="timeago" datetime="<%= new Date(timestamp).toISOString() %>"><%= timestamp %></time></div>
+		<div class="date"><time class="timeago" datetime="<%= new Date(timestamp).toISOString() %>"><%= jQuery.timeago(timestamp) %></time></div>
 		<ul class="actions">
 			<li><a href="#" class="reply">Reply</a></li>
 			<li><a href="#" class="delete">Delete</a></li>

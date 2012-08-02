@@ -122,14 +122,6 @@ $(function() {
       $(e.target).addClass("selected");
     },
     
-    getUsername: function() {
-      return this.model.get("username");
-    },
-    
-    getAvatar: function() {
-      return this.model.get("avatar");
-    },
-    
     saveUser: function() {
       var username = this.username_input.val();
       if (!username) {
@@ -164,7 +156,6 @@ $(function() {
     initialize: function() {
       this.user = new User();
       this.userView = new UserView({model: this.user, el: $("#user-box")});
-      this.userView.getAvatar();
       
       this.tweetList = new TweetList;
       this.tweetListView = new TweetListView({collection: this.tweetList});

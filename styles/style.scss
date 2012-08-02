@@ -133,7 +133,7 @@ footer {
 	li.tweet {
 		@include clearfix;
 		position: relative;
-		padding: 10px 0px 10px 70px;
+		padding: 10px 0px 0px 70px;
 		border-top: 1px solid $tweet-border;
 	
 		.avatar {
@@ -177,7 +177,7 @@ footer {
 			li {
 				list-style-type: none;
 				float: left;
-				padding: 0 10px 5px 0;
+				padding: 0 10px 0 0;
 				font-size: 14px;
 				
 				a {
